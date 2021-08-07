@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        int coin_count = 0;
+        int size = coins.size();
+        sort(coins.begin(), coins.end());
+        
+        if(amount == 0 ) return amount;
+        
+        int n = amount ;
+        for(int i = coins.size()-1 ; i >= 0 ; i --)
+        {
+            
+                
+               while(n>=coins[i]) 
+               {
+                   n = n - coins[i];
+                   coin_count += 1;
+                   cout<<coins[i]<<"  ";
+                   // cout<<n;
+                   
+               }
+            
+           
+        }
+        if(n != 0 ) return -1;
+        return coin_count;
+    }
+};
+
+
+// failed for negative
